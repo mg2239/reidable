@@ -1,0 +1,19 @@
+{
+  "name": "reidable",
+  "version": "1.0.0",
+  "description": "Create readabale UUIDs with custom schemas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node src/tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mg2239/reidable.git"
+  },
+  "author": "Matthew Guo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mg2239/reidable/issues"
+  },
+  "homepage": "https://github.com/mg2239/reidable#readme"
+}
