@@ -25,6 +25,8 @@ const generateUUID = (properties) => {
           return getNumber();
         case 'verb':
           return getVerb();
+        case 'rand':
+          return crypto.randomBytes(3).toString('hex');
         default:
           throw new Error('Invalid schema.');
       }
@@ -32,19 +34,12 @@ const generateUUID = (properties) => {
     .join('-');
 };
 
-const generateHash = () => {
-  return crypto.randomBytes(3).toString('hex');
-};
-
-const reidable = (schema = 'adj-noun', hasHash = false) => {
+const reidable = (schema = 'adj-noun-rand') => {
   let uuid;
   try {
     uuid = generateUUID(schema);
   } catch (err) {
     console.error(err);
-  }
-  if (hasHash) {
-    return `${uuid}-${generateHash()}`;
   }
   return uuid;
 };

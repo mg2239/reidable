@@ -4,7 +4,8 @@
   "description": "Create readabale UUIDs with custom schemas.",
   "main": "index.js",
   "scripts": {
-    "test": "node src/tests.js"
+    "test": "node src/tests.js",
+    "add": "node src/words/addWords.js"
   },
   "repository": {
     "type": "git",
