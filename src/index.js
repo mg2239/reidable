@@ -1,27 +1,28 @@
 const crypto = require('crypto');
-
-const getAdjective = () => 'happy';
-const getAdverb = () => 'quickly';
-const getNoun = () => 'box';
-const getVerb = () => 'ran';
+const {
+  getAdjective,
+  getAdverb,
+  getNoun,
+  getNumber,
+  getVerb,
+} = require('./words');
 
 const generateUUID = (properties) => {
   const propList = properties.split('-');
   return propList
     .map((prop) => {
       switch (prop) {
-        case 'a':
         case 'adj':
         case 'adjective':
           return getAdjective();
-        case 'A':
         case 'adv':
         case 'adverb':
           return getAdverb();
-        case 'n':
         case 'noun':
           return getNoun();
-        case 'v':
+        case 'num':
+        case 'number':
+          return getNumber();
         case 'verb':
           return getVerb();
         default:
@@ -36,7 +37,12 @@ const generateHash = () => {
 };
 
 const reidable = (schema = 'adj-noun', hasHash = false) => {
-  const uuid = generateUUID(schema);
+  let uuid;
+  try {
+    uuid = generateUUID(schema);
+  } catch (err) {
+    console.error(err);
+  }
   if (hasHash) {
     return `${uuid}-${generateHash()}`;
   }
